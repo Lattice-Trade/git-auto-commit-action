@@ -5,9 +5,95 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action/compare/v4.16.0...HEAD)
+## [Unreleased](https://github.com/stefanzweifel/git-auto-commit-action/compare/v6.0.1...HEAD)
 
 > TBD
+
+## [v6.0.1](https://github.com/stefanzweifel/git-auto-commit-action/compare/v6.0.0...v6.0.1) - 2025-06-11
+
+### Fixed
+
+- Disable Check if Repo is in Detached State ([#379](https://github.com/stefanzweifel/git-auto-commit-action/pull/379)) [@stefanzweifel](https://github.com/@stefanzweifel)
+
+## [v6.0.0](https://github.com/stefanzweifel/git-auto-commit-action/compare/v5.2.0...v6.0.0) - 2025-06-10
+
+### Added
+
+- Throw error early if repository is in a detached state ([#357](https://github.com/stefanzweifel/git-auto-commit-action/pull/357))
+
+### Fixed
+
+- Fix PAT instructions with Dependabot ([#376](https://github.com/stefanzweifel/git-auto-commit-action/pull/376)) [@Dreamsorcerer](https://github.com/@Dreamsorcerer)
+
+### Removed
+
+- Remove support for `create_branch`, `skip_checkout`, `skip_Fetch` ([#314](https://github.com/stefanzweifel/git-auto-commit-action/pull/314))
+
+## [v5.2.0](https://github.com/stefanzweifel/git-auto-commit-action/compare/v5.1.0...v5.2.0) - 2025-04-19
+
+### Added
+
+- Add `create_git_tag_only` option to skip commiting and always create a git-tag. ([#364](https://github.com/stefanzweifel/git-auto-commit-action/pull/364)) [@zMynxx](https://github.com/@zMynxx)
+- Add Test for `create_git_tag_only` feature ([#367](https://github.com/stefanzweifel/git-auto-commit-action/pull/367)) [@stefanzweifel](https://github.com/@stefanzweifel)
+
+### Fixed
+
+- docs: Update README.md per #354 ([#361](https://github.com/stefanzweifel/git-auto-commit-action/pull/361)) [@rasa](https://github.com/@rasa)
+
+## [v5.1.0](https://github.com/stefanzweifel/git-auto-commit-action/compare/v5.0.1...v5.1.0) - 2025-01-11
+
+### Changed
+
+- Include `github.actor_id` in default `commit_author` ([#354](https://github.com/stefanzweifel/git-auto-commit-action/pull/354)) [@parkerbxyz](https://github.com/@parkerbxyz)
+
+### Fixed
+
+- docs(README): fix broken protected branch docs link ([#346](https://github.com/stefanzweifel/git-auto-commit-action/pull/346)) [@scarf005](https://github.com/@scarf005)
+- Update README.md ([#343](https://github.com/stefanzweifel/git-auto-commit-action/pull/343)) [@Kludex](https://github.com/@Kludex)
+
+### Dependency Updates
+
+- Bump bats from 1.11.0 to 1.11.1 ([#353](https://github.com/stefanzweifel/git-auto-commit-action/pull/353)) [@dependabot](https://github.com/@dependabot)
+- Bump github/super-linter from 6 to 7 ([#342](https://github.com/stefanzweifel/git-auto-commit-action/pull/342)) [@dependabot](https://github.com/@dependabot)
+- Bump github/super-linter from 5 to 6 ([#335](https://github.com/stefanzweifel/git-auto-commit-action/pull/335)) [@dependabot](https://github.com/@dependabot)
+
+## [v5.0.1](https://github.com/stefanzweifel/git-auto-commit-action/compare/v5.0.0...v5.0.1) - 2024-04-12
+
+### Fixed
+
+- Fail if attempting to execute git commands in a directory that is not a git-repo. ([#326](https://github.com/stefanzweifel/git-auto-commit-action/pull/326)) [@ccomendant](https://github.com/@ccomendant)
+
+### Dependency Updates
+
+- Bump bats from 1.10.0 to 1.11.0 ([#325](https://github.com/stefanzweifel/git-auto-commit-action/pull/325)) [@dependabot](https://github.com/@dependabot)
+- Bump release-drafter/release-drafter from 5 to 6 ([#319](https://github.com/stefanzweifel/git-auto-commit-action/pull/319)) [@dependabot](https://github.com/@dependabot)
+
+### Misc
+
+- Clarify `commit_author` input option ([#315](https://github.com/stefanzweifel/git-auto-commit-action/pull/315)) [@npanuhin](https://github.com/@npanuhin)
+- Add step id explanation for output in README.md ([#324](https://github.com/stefanzweifel/git-auto-commit-action/pull/324)) [@ChristianVermeulen](https://github.com/@ChristianVermeulen)
+- Linux is not UNIX ([#321](https://github.com/stefanzweifel/git-auto-commit-action/pull/321)) [@couling](https://github.com/@couling)
+
+## [v5.0.0](https://github.com/stefanzweifel/git-auto-commit-action/compare/v4.16.0...v5.0.0) - 2023-10-06
+
+New major release that bumps the default runtime to Node 20. There are no other breaking changes.
+
+### Changed
+
+- Update node version to node20 ([#300](https://github.com/stefanzweifel/git-auto-commit-action/pull/300)) [@ryudaitakai](https://github.com/@ryudaitakai)
+- Add _log and _set_github_output functions ([#273](https://github.com/stefanzweifel/git-auto-commit-action/pull/273)) [@stefanzweifel](https://github.com/@stefanzweifel)
+
+### Fixed
+
+- Seems like there is an extra space ([#288](https://github.com/stefanzweifel/git-auto-commit-action/pull/288)) [@pedroamador](https://github.com/@pedroamador)
+- Fix git-auto-commit.yml ([#277](https://github.com/stefanzweifel/git-auto-commit-action/pull/277)) [@zcong1993](https://github.com/@zcong1993)
+
+### Dependency Updates
+
+- Bump actions/checkout from 3 to 4 ([#302](https://github.com/stefanzweifel/git-auto-commit-action/pull/302)) [@dependabot](https://github.com/@dependabot)
+- Bump bats from 1.9.0 to 1.10.0 ([#293](https://github.com/stefanzweifel/git-auto-commit-action/pull/293)) [@dependabot](https://github.com/@dependabot)
+- Bump github/super-linter from 4 to 5 ([#289](https://github.com/stefanzweifel/git-auto-commit-action/pull/289)) [@dependabot](https://github.com/@dependabot)
+- Bump bats from 1.8.2 to 1.9.0 ([#282](https://github.com/stefanzweifel/git-auto-commit-action/pull/282)) [@dependabot](https://github.com/@dependabot)
 
 ## [v4.16.0](https://github.com/stefanzweifel/git-auto-commit-action/compare/v4.15.4...v4.16.0) - 2022-12-02
 

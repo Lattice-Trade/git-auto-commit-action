@@ -1,7 +1,7 @@
 name: Git Auto Commit
 description: 'Automatically commits files which have been changed during the workflow run and push changes back to remote repository.'
 
-author: Stefan Zweifel <hello@stefanzweifel.io>
+author: Stefan Zweifel <stefan@stefanzweifel.dev>
 
 inputs:
   commit_message:
@@ -43,7 +43,7 @@ inputs:
   commit_author:
     description: Value used for the commit author. Defaults to the username of whoever triggered this workflow run.
     required: false
-    default: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+    default: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
   tagging_message:
     description: Message used to create a new git tag with the commit. Keep this empty, if no tag should be created.
     required: false
@@ -56,32 +56,39 @@ inputs:
     description: Skip the check if the git repository is dirty and always try to create a commit.
     required: false
     default: false
-  skip_fetch:
-    description: Skip the call to git-fetch.
-    required: false
-    default: false
-  skip_checkout:
-    description: Skip the call to git-checkout.
-    required: false
-    default: false
   disable_globbing:
     description: Stop the shell from expanding filenames (https://www.gnu.org/software/bash/manual/html_node/Filename-Expansion.html)
     default: false
-  create_branch:
-    description: Create new branch with the name of `branch`-input in local and remote repository, if it doesn't exist yet.
+  create_git_tag_only:
+    description: Perform a clean git tag and push, without commiting anything
+    required: false
     default: false
   internal_git_binary:
     description: Internal use only! Path to git binary used to check if git is available. (Don't change this!)
     default: git
+  skip_fetch:
+    description: "Deprecated: skip_fetch has been removed in v6. It does not have any effect anymore."
+    required: false
+    default: false
+  skip_checkout:
+    description: "Deprecated: skip_checkout has been removed in v6. It does not have any effect anymore."
+    required: false
+    default: false
+  create_branch:
+    description: "Deprecated: create_branch has been removed in v6. It does not have any effect anymore."
+    default: false
+
 
 outputs:
   changes_detected:
     description: Value is "true", if the repository was dirty and file changes have been detected. Value is "false", if no changes have been detected.
   commit_hash:
     description: Full hash of the created commit. Only present if the "changes_detected" output is "true".
+  create_git_tag_only:
+    description: Value is "true", if a git tag was created using the `create_git_tag_only`-input.
 
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'index.js'
 
 branding:
